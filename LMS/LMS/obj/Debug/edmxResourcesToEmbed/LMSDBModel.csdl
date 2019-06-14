@@ -1,0 +1,367 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LMSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Book_Master">
+    <Key>
+      <PropertyRef Name="Book_Id" />
+    </Key>
+    <Property Name="Book_Id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Book_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Book_Auth" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Book_Edition" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Book_Publish" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Sr_Id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Book_Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Book_Register_Sub" Relationship="Self.FK_Book_Register_Sub_Book_Master" FromRole="Book_Master" ToRole="Book_Register_Sub" />
+    <NavigationProperty Name="Purchase_Sub" Relationship="Self.FK_Purchase_Sub_Book_Master1" FromRole="Book_Master" ToRole="Purchase_Sub" />
+    <NavigationProperty Name="Stock" Relationship="Self.FK_Stocks_Book_Master" FromRole="Book_Master" ToRole="Stocks" />
+  </EntityType>
+  <EntityType Name="Book_Register_Main">
+    <Key>
+      <PropertyRef Name="Reg_Id" />
+    </Key>
+    <Property Name="Reg_Id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Reg_Date" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Mem_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Reg_Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Member_Master" Relationship="Self.FK_Book_Register_Main_Member_Master" FromRole="Book_Register_Main" ToRole="Member_Master" />
+    <NavigationProperty Name="Book_Register_Sub" Relationship="Self.FK_Book_Register_Sub_Book_Register_Main" FromRole="Book_Register_Main" ToRole="Book_Register_Sub" />
+  </EntityType>
+  <EntityType Name="Book_Register_Sub">
+    <Key>
+      <PropertyRef Name="Reg_Id" />
+      <PropertyRef Name="Brs_No" />
+    </Key>
+    <Property Name="Reg_Id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Reg_Date" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Mem_Id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Brs_No" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Book_Id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="BrOutDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="BrInDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Br_Qty" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Br_Fine" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Br_Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Book_Master" Relationship="Self.FK_Book_Register_Sub_Book_Master" FromRole="Book_Register_Sub" ToRole="Book_Master" />
+    <NavigationProperty Name="Book_Register_Main" Relationship="Self.FK_Book_Register_Sub_Book_Register_Main" FromRole="Book_Register_Sub" ToRole="Book_Register_Main" />
+    <NavigationProperty Name="Member_Master" Relationship="Self.FK_Book_Register_Sub_Member_Master" FromRole="Book_Register_Sub" ToRole="Member_Master" />
+  </EntityType>
+  <EntityType Name="LogIn">
+    <Key>
+      <PropertyRef Name="Admin_Id" />
+    </Key>
+    <Property Name="Admin_Id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Admin_Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Mem_Transaction">
+    <Key>
+      <PropertyRef Name="Trans_Id" />
+    </Key>
+    <Property Name="Trans_Id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Trans_Date" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Mem_Id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Mem_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Amount" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Fine" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Member_Master" Relationship="Self.FK_Mem_Transaction_Member_Master" FromRole="Mem_Transaction" ToRole="Member_Master" />
+  </EntityType>
+  <EntityType Name="Member_Master">
+    <Key>
+      <PropertyRef Name="Mem_Id" />
+    </Key>
+    <Property Name="Mem_Id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Mem_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Mem_Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Mem_Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Mem_Address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Mem_Dob" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Mem_Doj" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Plan_Id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Mem_Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Book_Register_Main" Relationship="Self.FK_Book_Register_Main_Member_Master" FromRole="Member_Master" ToRole="Book_Register_Main" />
+    <NavigationProperty Name="Book_Register_Sub" Relationship="Self.FK_Book_Register_Sub_Member_Master" FromRole="Member_Master" ToRole="Book_Register_Sub" />
+    <NavigationProperty Name="Mem_Transaction" Relationship="Self.FK_Mem_Transaction_Member_Master" FromRole="Member_Master" ToRole="Mem_Transaction" />
+    <NavigationProperty Name="Plan_Master" Relationship="Self.FK_Member_Master_Plan_Master" FromRole="Member_Master" ToRole="Plan_Master" />
+  </EntityType>
+  <EntityType Name="Plan_Master">
+    <Key>
+      <PropertyRef Name="Plan_Id" />
+    </Key>
+    <Property Name="Plan_Id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Plan_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Plan_Book_Limit" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Plan_Book_Hold" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Plan_Validity" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Plan_Amount" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Plan_Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Member_Master" Relationship="Self.FK_Member_Master_Plan_Master" FromRole="Plan_Master" ToRole="Member_Master" />
+  </EntityType>
+  <EntityType Name="Purchase_Main">
+    <Key>
+      <PropertyRef Name="Pur_Id" />
+    </Key>
+    <Property Name="Pur_Id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Pur_Date" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Pur_Form" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Pur_Amount" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Pur_Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Purchase_Sub" Relationship="Self.FK_Purchase_Sub_Purchase_Main1" FromRole="Purchase_Main" ToRole="Purchase_Sub" />
+  </EntityType>
+  <EntityType Name="Purchase_Sub">
+    <Key>
+      <PropertyRef Name="Pur_Id" />
+      <PropertyRef Name="Pur_No" />
+    </Key>
+    <Property Name="Pur_Id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Pur_Date" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Pur_No" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Book_Id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Book_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Qty" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Rate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Amount" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Book_Master" Relationship="Self.FK_Purchase_Sub_Book_Master1" FromRole="Purchase_Sub" ToRole="Book_Master" />
+    <NavigationProperty Name="Purchase_Main" Relationship="Self.FK_Purchase_Sub_Purchase_Main1" FromRole="Purchase_Sub" ToRole="Purchase_Main" />
+  </EntityType>
+  <EntityType Name="Rack_Master">
+    <Key>
+      <PropertyRef Name="Rack_Id" />
+    </Key>
+    <Property Name="Rack_Id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Rack_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Rack_Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Sec_Rac_Map" Relationship="Self.FK_Sec_Rac_Map_Rack_Master" FromRole="Rack_Master" ToRole="Sec_Rac_Map" />
+  </EntityType>
+  <EntityType Name="Role_Master">
+    <Key>
+      <PropertyRef Name="Role_ID" />
+    </Key>
+    <Property Name="Role_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Role" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Role_Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Sec_Rac_Map">
+    <Key>
+      <PropertyRef Name="Sr_ID" />
+    </Key>
+    <Property Name="Sr_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Sec_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Rack_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Sr_Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Rack_Master" Relationship="Self.FK_Sec_Rac_Map_Rack_Master" FromRole="Sec_Rac_Map" ToRole="Rack_Master" />
+    <NavigationProperty Name="Section_Master" Relationship="Self.FK_Sec_Rac_Map_Section_Master" FromRole="Sec_Rac_Map" ToRole="Section_Master" />
+  </EntityType>
+  <EntityType Name="Section_Master">
+    <Key>
+      <PropertyRef Name="Sec_Id" />
+    </Key>
+    <Property Name="Sec_Id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Sec_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Sec_Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Sec_Rac_Map" Relationship="Self.FK_Sec_Rac_Map_Section_Master" FromRole="Section_Master" ToRole="Sec_Rac_Map" />
+  </EntityType>
+  <EntityType Name="Stock">
+    <Key>
+      <PropertyRef Name="Book_Id" />
+    </Key>
+    <Property Name="Book_Id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Book_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Qty" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Book_Master" Relationship="Self.FK_Stocks_Book_Master" FromRole="Stocks" ToRole="Book_Master" />
+  </EntityType>
+  <Association Name="FK_Book_Register_Sub_Book_Master">
+    <End Role="Book_Master" Type="Self.Book_Master" Multiplicity="1" />
+    <End Role="Book_Register_Sub" Type="Self.Book_Register_Sub" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Book_Master">
+        <PropertyRef Name="Book_Id" />
+      </Principal>
+      <Dependent Role="Book_Register_Sub">
+        <PropertyRef Name="Book_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Purchase_Sub_Book_Master1">
+    <End Role="Book_Master" Type="Self.Book_Master" Multiplicity="1" />
+    <End Role="Purchase_Sub" Type="Self.Purchase_Sub" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Book_Master">
+        <PropertyRef Name="Book_Id" />
+      </Principal>
+      <Dependent Role="Purchase_Sub">
+        <PropertyRef Name="Book_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Stocks_Book_Master">
+    <End Role="Book_Master" Type="Self.Book_Master" Multiplicity="1" />
+    <End Role="Stocks" Type="Self.Stock" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Book_Master">
+        <PropertyRef Name="Book_Id" />
+      </Principal>
+      <Dependent Role="Stocks">
+        <PropertyRef Name="Book_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Book_Register_Main_Member_Master">
+    <End Role="Member_Master" Type="Self.Member_Master" Multiplicity="1" />
+    <End Role="Book_Register_Main" Type="Self.Book_Register_Main" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Member_Master">
+        <PropertyRef Name="Mem_Id" />
+      </Principal>
+      <Dependent Role="Book_Register_Main">
+        <PropertyRef Name="Mem_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Book_Register_Sub_Book_Register_Main">
+    <End Role="Book_Register_Main" Type="Self.Book_Register_Main" Multiplicity="1" />
+    <End Role="Book_Register_Sub" Type="Self.Book_Register_Sub" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Book_Register_Main">
+        <PropertyRef Name="Reg_Id" />
+      </Principal>
+      <Dependent Role="Book_Register_Sub">
+        <PropertyRef Name="Reg_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Book_Register_Sub_Member_Master">
+    <End Role="Member_Master" Type="Self.Member_Master" Multiplicity="1" />
+    <End Role="Book_Register_Sub" Type="Self.Book_Register_Sub" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Member_Master">
+        <PropertyRef Name="Mem_Id" />
+      </Principal>
+      <Dependent Role="Book_Register_Sub">
+        <PropertyRef Name="Mem_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Mem_Transaction_Member_Master">
+    <End Role="Member_Master" Type="Self.Member_Master" Multiplicity="1" />
+    <End Role="Mem_Transaction" Type="Self.Mem_Transaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Member_Master">
+        <PropertyRef Name="Mem_Id" />
+      </Principal>
+      <Dependent Role="Mem_Transaction">
+        <PropertyRef Name="Mem_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Member_Master_Plan_Master">
+    <End Role="Plan_Master" Type="Self.Plan_Master" Multiplicity="1" />
+    <End Role="Member_Master" Type="Self.Member_Master" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Plan_Master">
+        <PropertyRef Name="Plan_Id" />
+      </Principal>
+      <Dependent Role="Member_Master">
+        <PropertyRef Name="Plan_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Purchase_Sub_Purchase_Main1">
+    <End Role="Purchase_Main" Type="Self.Purchase_Main" Multiplicity="1" />
+    <End Role="Purchase_Sub" Type="Self.Purchase_Sub" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Purchase_Main">
+        <PropertyRef Name="Pur_Id" />
+      </Principal>
+      <Dependent Role="Purchase_Sub">
+        <PropertyRef Name="Pur_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sec_Rac_Map_Rack_Master">
+    <End Role="Rack_Master" Type="Self.Rack_Master" Multiplicity="1" />
+    <End Role="Sec_Rac_Map" Type="Self.Sec_Rac_Map" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rack_Master">
+        <PropertyRef Name="Rack_Id" />
+      </Principal>
+      <Dependent Role="Sec_Rac_Map">
+        <PropertyRef Name="Rack_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sec_Rac_Map_Section_Master">
+    <End Role="Section_Master" Type="Self.Section_Master" Multiplicity="1" />
+    <End Role="Sec_Rac_Map" Type="Self.Sec_Rac_Map" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Section_Master">
+        <PropertyRef Name="Sec_Id" />
+      </Principal>
+      <Dependent Role="Sec_Rac_Map">
+        <PropertyRef Name="Sec_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="LMSEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Book_Master" EntityType="Self.Book_Master" />
+    <EntitySet Name="Book_Register_Main" EntityType="Self.Book_Register_Main" />
+    <EntitySet Name="Book_Register_Sub" EntityType="Self.Book_Register_Sub" />
+    <EntitySet Name="LogIns" EntityType="Self.LogIn" />
+    <EntitySet Name="Mem_Transaction" EntityType="Self.Mem_Transaction" />
+    <EntitySet Name="Member_Master" EntityType="Self.Member_Master" />
+    <EntitySet Name="Plan_Master" EntityType="Self.Plan_Master" />
+    <EntitySet Name="Purchase_Main" EntityType="Self.Purchase_Main" />
+    <EntitySet Name="Purchase_Sub" EntityType="Self.Purchase_Sub" />
+    <EntitySet Name="Rack_Master" EntityType="Self.Rack_Master" />
+    <EntitySet Name="Role_Master" EntityType="Self.Role_Master" />
+    <EntitySet Name="Sec_Rac_Map" EntityType="Self.Sec_Rac_Map" />
+    <EntitySet Name="Section_Master" EntityType="Self.Section_Master" />
+    <EntitySet Name="Stocks" EntityType="Self.Stock" />
+    <AssociationSet Name="FK_Book_Register_Sub_Book_Master" Association="Self.FK_Book_Register_Sub_Book_Master">
+      <End Role="Book_Master" EntitySet="Book_Master" />
+      <End Role="Book_Register_Sub" EntitySet="Book_Register_Sub" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Purchase_Sub_Book_Master1" Association="Self.FK_Purchase_Sub_Book_Master1">
+      <End Role="Book_Master" EntitySet="Book_Master" />
+      <End Role="Purchase_Sub" EntitySet="Purchase_Sub" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Stocks_Book_Master" Association="Self.FK_Stocks_Book_Master">
+      <End Role="Book_Master" EntitySet="Book_Master" />
+      <End Role="Stocks" EntitySet="Stocks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Book_Register_Main_Member_Master" Association="Self.FK_Book_Register_Main_Member_Master">
+      <End Role="Member_Master" EntitySet="Member_Master" />
+      <End Role="Book_Register_Main" EntitySet="Book_Register_Main" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Book_Register_Sub_Book_Register_Main" Association="Self.FK_Book_Register_Sub_Book_Register_Main">
+      <End Role="Book_Register_Main" EntitySet="Book_Register_Main" />
+      <End Role="Book_Register_Sub" EntitySet="Book_Register_Sub" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Book_Register_Sub_Member_Master" Association="Self.FK_Book_Register_Sub_Member_Master">
+      <End Role="Member_Master" EntitySet="Member_Master" />
+      <End Role="Book_Register_Sub" EntitySet="Book_Register_Sub" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Mem_Transaction_Member_Master" Association="Self.FK_Mem_Transaction_Member_Master">
+      <End Role="Member_Master" EntitySet="Member_Master" />
+      <End Role="Mem_Transaction" EntitySet="Mem_Transaction" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Member_Master_Plan_Master" Association="Self.FK_Member_Master_Plan_Master">
+      <End Role="Plan_Master" EntitySet="Plan_Master" />
+      <End Role="Member_Master" EntitySet="Member_Master" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Purchase_Sub_Purchase_Main1" Association="Self.FK_Purchase_Sub_Purchase_Main1">
+      <End Role="Purchase_Main" EntitySet="Purchase_Main" />
+      <End Role="Purchase_Sub" EntitySet="Purchase_Sub" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sec_Rac_Map_Rack_Master" Association="Self.FK_Sec_Rac_Map_Rack_Master">
+      <End Role="Rack_Master" EntitySet="Rack_Master" />
+      <End Role="Sec_Rac_Map" EntitySet="Sec_Rac_Map" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sec_Rac_Map_Section_Master" Association="Self.FK_Sec_Rac_Map_Section_Master">
+      <End Role="Section_Master" EntitySet="Section_Master" />
+      <End Role="Sec_Rac_Map" EntitySet="Sec_Rac_Map" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="452e6f6857e8436c87bfed360cce5032" Name="Diagram1" ZoomLevel="81">
+        <EntityTypeShape EntityType="LMSModel.Book_Master" Width="1.5" PointX="5.25" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="LMSModel.Book_Register_Main" Width="1.5" PointX="5.25" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="LMSModel.Book_Register_Sub" Width="1.5" PointX="7.5" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="LMSModel.LogIn" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LMSModel.Mem_Transaction" Width="1.5" PointX="5.25" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LMSModel.Member_Master" Width="1.5" PointX="3" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="LMSModel.Plan_Master" Width="1.5" PointX="0.75" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="LMSModel.Purchase_Main" Width="1.5" PointX="8.25" PointY="16" IsExpanded="true" />
+        <EntityTypeShape EntityType="LMSModel.Purchase_Sub" Width="1.5" PointX="10.5" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="LMSModel.Rack_Master" Width="1.5" PointX="7.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="LMSModel.Role_Master" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LMSModel.Sec_Rac_Map" Width="1.5" PointX="10" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="LMSModel.Section_Master" Width="1.5" PointX="7.75" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="LMSModel.Stock" Width="1.5" PointX="7.5" PointY="13" IsExpanded="true" />
+        <AssociationConnector Association="LMSModel.FK_Book_Register_Sub_Book_Master" ManuallyRouted="false" />
+        <AssociationConnector Association="LMSModel.FK_Purchase_Sub_Book_Master1" ManuallyRouted="false" />
+        <AssociationConnector Association="LMSModel.FK_Stocks_Book_Master" ManuallyRouted="false" />
+        <AssociationConnector Association="LMSModel.FK_Book_Register_Main_Member_Master" ManuallyRouted="false" />
+        <AssociationConnector Association="LMSModel.FK_Book_Register_Sub_Book_Register_Main" ManuallyRouted="false" />
+        <AssociationConnector Association="LMSModel.FK_Book_Register_Sub_Member_Master" ManuallyRouted="false" />
+        <AssociationConnector Association="LMSModel.FK_Mem_Transaction_Member_Master" ManuallyRouted="false" />
+        <AssociationConnector Association="LMSModel.FK_Member_Master_Plan_Master" ManuallyRouted="false" />
+        <AssociationConnector Association="LMSModel.FK_Purchase_Sub_Purchase_Main1" ManuallyRouted="false" />
+        <AssociationConnector Association="LMSModel.FK_Sec_Rac_Map_Rack_Master" ManuallyRouted="false" />
+        <AssociationConnector Association="LMSModel.FK_Sec_Rac_Map_Section_Master" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

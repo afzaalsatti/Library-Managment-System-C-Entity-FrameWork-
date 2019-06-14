@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="LMSModelStoreContainer" CdmEntityContainer="LMSEntities">
+    <EntitySetMapping Name="Book_Master">
+      <EntityTypeMapping TypeName="LMSModel.Book_Master">
+        <MappingFragment StoreEntitySet="Book_Master">
+          <ScalarProperty Name="Book_Id" ColumnName="Book_Id" />
+          <ScalarProperty Name="Book_Name" ColumnName="Book_Name" />
+          <ScalarProperty Name="Book_Auth" ColumnName="Book_Auth" />
+          <ScalarProperty Name="Book_Edition" ColumnName="Book_Edition" />
+          <ScalarProperty Name="Book_Publish" ColumnName="Book_Publish" />
+          <ScalarProperty Name="Sr_Id" ColumnName="Sr_Id" />
+          <ScalarProperty Name="Book_Status" ColumnName="Book_Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Book_Register_Main">
+      <EntityTypeMapping TypeName="LMSModel.Book_Register_Main">
+        <MappingFragment StoreEntitySet="Book_Register_Main">
+          <ScalarProperty Name="Reg_Id" ColumnName="Reg_Id" />
+          <ScalarProperty Name="Reg_Date" ColumnName="Reg_Date" />
+          <ScalarProperty Name="Mem_id" ColumnName="Mem_id" />
+          <ScalarProperty Name="Reg_Status" ColumnName="Reg_Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Book_Register_Sub">
+      <EntityTypeMapping TypeName="LMSModel.Book_Register_Sub">
+        <MappingFragment StoreEntitySet="Book_Register_Sub">
+          <ScalarProperty Name="Reg_Id" ColumnName="Reg_Id" />
+          <ScalarProperty Name="Reg_Date" ColumnName="Reg_Date" />
+          <ScalarProperty Name="Mem_Id" ColumnName="Mem_Id" />
+          <ScalarProperty Name="Brs_No" ColumnName="Brs_No" />
+          <ScalarProperty Name="Book_Id" ColumnName="Book_Id" />
+          <ScalarProperty Name="BrOutDate" ColumnName="BrOutDate" />
+          <ScalarProperty Name="BrInDate" ColumnName="BrInDate" />
+          <ScalarProperty Name="Br_Qty" ColumnName="Br_Qty" />
+          <ScalarProperty Name="Br_Fine" ColumnName="Br_Fine" />
+          <ScalarProperty Name="Br_Status" ColumnName="Br_Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LogIns">
+      <EntityTypeMapping TypeName="LMSModel.LogIn">
+        <MappingFragment StoreEntitySet="LogIn">
+          <ScalarProperty Name="Admin_Id" ColumnName="Admin_Id" />
+          <ScalarProperty Name="Admin_Password" ColumnName="Admin_Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Mem_Transaction">
+      <EntityTypeMapping TypeName="LMSModel.Mem_Transaction">
+        <MappingFragment StoreEntitySet="Mem_Transaction">
+          <ScalarProperty Name="Trans_Id" ColumnName="Trans_Id" />
+          <ScalarProperty Name="Trans_Date" ColumnName="Trans_Date" />
+          <ScalarProperty Name="Mem_Id" ColumnName="Mem_Id" />
+          <ScalarProperty Name="Mem_Name" ColumnName="Mem_Name" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Fine" ColumnName="Fine" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Member_Master">
+      <EntityTypeMapping TypeName="LMSModel.Member_Master">
+        <MappingFragment StoreEntitySet="Member_Master">
+          <ScalarProperty Name="Mem_Id" ColumnName="Mem_Id" />
+          <ScalarProperty Name="Mem_Name" ColumnName="Mem_Name" />
+          <ScalarProperty Name="Mem_Email" ColumnName="Mem_Email" />
+          <ScalarProperty Name="Mem_Mobile" ColumnName="Mem_Mobile" />
+          <ScalarProperty Name="Mem_Address" ColumnName="Mem_Address" />
+          <ScalarProperty Name="Mem_Dob" ColumnName="Mem_Dob" />
+          <ScalarProperty Name="Mem_Doj" ColumnName="Mem_Doj" />
+          <ScalarProperty Name="Plan_Id" ColumnName="Plan_Id" />
+          <ScalarProperty Name="Mem_Status" ColumnName="Mem_Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Plan_Master">
+      <EntityTypeMapping TypeName="LMSModel.Plan_Master">
+        <MappingFragment StoreEntitySet="Plan_Master">
+          <ScalarProperty Name="Plan_Id" ColumnName="Plan_Id" />
+          <ScalarProperty Name="Plan_Name" ColumnName="Plan_Name" />
+          <ScalarProperty Name="Plan_Book_Limit" ColumnName="Plan_Book_Limit" />
+          <ScalarProperty Name="Plan_Book_Hold" ColumnName="Plan_Book_Hold" />
+          <ScalarProperty Name="Plan_Validity" ColumnName="Plan_Validity" />
+          <ScalarProperty Name="Plan_Amount" ColumnName="Plan_Amount" />
+          <ScalarProperty Name="Plan_Status" ColumnName="Plan_Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Purchase_Main">
+      <EntityTypeMapping TypeName="LMSModel.Purchase_Main">
+        <MappingFragment StoreEntitySet="Purchase_Main">
+          <ScalarProperty Name="Pur_Id" ColumnName="Pur_Id" />
+          <ScalarProperty Name="Pur_Date" ColumnName="Pur_Date" />
+          <ScalarProperty Name="Pur_Form" ColumnName="Pur_Form" />
+          <ScalarProperty Name="Pur_Amount" ColumnName="Pur_Amount" />
+          <ScalarProperty Name="Pur_Status" ColumnName="Pur_Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rack_Master">
+      <EntityTypeMapping TypeName="LMSModel.Rack_Master">
+        <MappingFragment StoreEntitySet="Rack_Master">
+          <ScalarProperty Name="Rack_Id" ColumnName="Rack_Id" />
+          <ScalarProperty Name="Rack_Name" ColumnName="Rack_Name" />
+          <ScalarProperty Name="Rack_Status" ColumnName="Rack_Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sec_Rac_Map">
+      <EntityTypeMapping TypeName="LMSModel.Sec_Rac_Map">
+        <MappingFragment StoreEntitySet="Sec_Rac_Map">
+          <ScalarProperty Name="Sr_ID" ColumnName="Sr_ID" />
+          <ScalarProperty Name="Sec_ID" ColumnName="Sec_ID" />
+          <ScalarProperty Name="Rack_ID" ColumnName="Rack_ID" />
+          <ScalarProperty Name="Sr_Status" ColumnName="Sr_Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Section_Master">
+      <EntityTypeMapping TypeName="LMSModel.Section_Master">
+        <MappingFragment StoreEntitySet="Section_Master">
+          <ScalarProperty Name="Sec_Id" ColumnName="Sec_Id" />
+          <ScalarProperty Name="Sec_Name" ColumnName="Sec_Name" />
+          <ScalarProperty Name="Sec_Status" ColumnName="Sec_Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Stocks">
+      <EntityTypeMapping TypeName="LMSModel.Stock">
+        <MappingFragment StoreEntitySet="Stocks">
+          <ScalarProperty Name="Book_Id" ColumnName="Book_Id" />
+          <ScalarProperty Name="Book_Name" ColumnName="Book_Name" />
+          <ScalarProperty Name="Qty" ColumnName="Qty" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Purchase_Sub">
+      <EntityTypeMapping TypeName="LMSModel.Purchase_Sub">
+        <MappingFragment StoreEntitySet="Purchase_Sub">
+          <ScalarProperty Name="Pur_Id" ColumnName="Pur_Id" />
+          <ScalarProperty Name="Pur_Date" ColumnName="Pur_Date" />
+          <ScalarProperty Name="Pur_No" ColumnName="Pur_No" />
+          <ScalarProperty Name="Book_Id" ColumnName="Book_Id" />
+          <ScalarProperty Name="Book_Name" ColumnName="Book_Name" />
+          <ScalarProperty Name="Qty" ColumnName="Qty" />
+          <ScalarProperty Name="Rate" ColumnName="Rate" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Role_Master">
+      <EntityTypeMapping TypeName="LMSModel.Role_Master">
+        <MappingFragment StoreEntitySet="Role_Master">
+          <ScalarProperty Name="Role_ID" ColumnName="Role_ID" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
+          <ScalarProperty Name="Role_Status" ColumnName="Role_Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
